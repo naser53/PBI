@@ -1,0 +1,359 @@
+{
+    "dataRoles": [
+        {
+            "displayName": "Value",
+            "name": "category",
+            "kind": "Grouping"
+        }
+    ],
+    "dataViewMappings": [
+        {
+            "categorical": {
+                "categories": {
+                    "for": {
+                        "in": "category"
+                    },
+                    "dataReductionAlgorithm": {
+                        "top": {
+                            "count": 200
+                        }
+                    }
+                }
+            }
+        }
+    ],
+    "objects": {
+        "general": {
+            "displayName": "General",
+            "properties": {
+                "slicerType": {
+                    "displayName": "Slicer Type",
+                    "type": {
+                        "enumeration": [
+                            { "value": "button", "displayName": "Button" },
+                            { "value": "slider", "displayName": "Slider" }
+                        ]
+                    }
+                },
+                "showFilterIcon": {
+                    "displayName": "Show Filter Icon",
+                    "type": {
+                        "bool": true
+                    }
+                }
+            }
+        },
+        "collapseIcon": {
+            "displayName": "Filter Icon",
+            "properties": {
+                "iconStyle": {
+                    "displayName": "Icon Style",
+                    "type": {
+                        "enumeration": [
+                            { "value": "filterBW16", "displayName": "Filter BW 16" },
+                            { "value": "filterBW24", "displayName": "Filter BW 24" },
+                            { "value": "filterBW32", "displayName": "Filter BW 32" },
+                            { "value": "filterColored16", "displayName": "Filter Colored 16" },
+                            { "value": "filterColored24", "displayName": "Filter Colored 24" },
+                            { "value": "filterColored32", "displayName": "Filter Colored 32" },
+                            { "value": "custom", "displayName": "Custom (Base64)" }
+                        ]
+                    }
+                },
+                "customIconBase64": {
+                    "displayName": "Custom Icon (Base64)",
+                    "type": {
+                        "text": true
+                    }
+                },
+                "iconSize": {
+                    "displayName": "Icon Size (px)",
+                    "type": {
+                        "numeric": true
+                    }
+                },
+                "iconPosition": {
+                    "displayName": "Icon Position",
+                    "type": {
+                        "enumeration": [
+                            { "value": "topLeft", "displayName": "Top Left" },
+                            { "value": "topRight", "displayName": "Top Right" },
+                            { "value": "bottomLeft", "displayName": "Bottom Left" },
+                            { "value": "bottomRight", "displayName": "Bottom Right" }
+                        ]
+                    }
+                }
+            }
+        },
+        "tileFormatting": {
+            "displayName": "Button Formatting",
+            "properties": {
+                "orientation": {
+                    "displayName": "Orientation",
+                    "type": {
+                        "enumeration": [
+                            { "value": "horizontal", "displayName": "Horizontal" },
+                            { "value": "vertical", "displayName": "Vertical" }
+                        ]
+                    }
+                },
+                "maxTileWidth": {
+                    "displayName": "Max Tile Width",
+                    "type": {
+                        "numeric": true
+                    }
+                },
+                "fontFamily": {
+                    "displayName": "Font Family",
+                    "type": {
+                        "formatting": {
+                            "fontFamily": true
+                        }
+                    }
+                },
+                "fontSize": {
+                    "displayName": "Font Size",
+                    "type": {
+                        "formatting": {
+                            "fontSize": true
+                        }
+                    }
+                },
+                "fontColor": {
+                    "displayName": "Font Color",
+                    "type": {
+                        "fill": {
+                            "solid": {
+                                "color": true
+                            }
+                        }
+                    }
+                },
+                "fontBold": {
+                    "displayName": "Bold",
+                    "type": {
+                        "bool": true
+                    }
+                },
+                "alignment": {
+                    "displayName": "Alignment",
+                    "type": {
+                        "formatting": {
+                            "alignment": true
+                        }
+                    }
+                },
+                "defaultBackground": {
+                    "displayName": "Background Color",
+                    "type": {
+                        "fill": {
+                            "solid": {
+                                "color": true
+                            }
+                        }
+                    }
+                },
+                "selectedBackground": {
+                    "displayName": "Selected Color",
+                    "type": {
+                        "fill": {
+                            "solid": {
+                                "color": true
+                            }
+                        }
+                    }
+                },
+                "selectedFontColor": {
+                    "displayName": "Selected Font Color",
+                    "type": {
+                        "fill": {
+                            "solid": {
+                                "color": true
+                            }
+                        }
+                    }
+                },
+                "borderRadius": {
+                    "displayName": "Border Radius",
+                    "type": {
+                        "numeric": true
+                    }
+                },
+                "tileGap": {
+                    "displayName": "Tile Gap",
+                    "type": {
+                        "numeric": true
+                    }
+                },
+                "tilePadding": {
+                    "displayName": "Tile Padding",
+                    "type": {
+                        "numeric": true
+                    }
+                }
+            }
+        },
+        "sliderSettings": {
+            "displayName": "Slider",
+            "properties": {
+                "orientation": {
+                    "displayName": "Orientation",
+                    "type": {
+                        "enumeration": [
+                            { "value": "horizontal", "displayName": "Horizontal" },
+                            { "value": "vertical", "displayName": "Vertical" }
+                        ]
+                    }
+                },
+                "trackColor": {
+                    "displayName": "Track Color",
+                    "type": {
+                        "fill": {
+                            "solid": {
+                                "color": true
+                            }
+                        }
+                    }
+                },
+                "selectedTrackColor": {
+                    "displayName": "Selected Range Color",
+                    "type": {
+                        "fill": {
+                            "solid": {
+                                "color": true
+                            }
+                        }
+                    }
+                },
+                "handleColor": {
+                    "displayName": "Handle Color",
+                    "type": {
+                        "fill": {
+                            "solid": {
+                                "color": true
+                            }
+                        }
+                    }
+                },
+                "grabColor": {
+                    "displayName": "Grab Color",
+                    "description": "Color shown while dragging the range bar",
+                    "type": {
+                        "fill": {
+                            "solid": {
+                                "color": true
+                            }
+                        }
+                    }
+                },
+                "handleSize": {
+                    "displayName": "Handle Size (px)",
+                    "type": {
+                        "numeric": true
+                    }
+                },
+                "trackHeight": {
+                    "displayName": "Track Height (px)",
+                    "type": {
+                        "numeric": true
+                    }
+                },
+                "handleShape": {
+                    "displayName": "Handle Shape",
+                    "description": "Arrow and Half Circle follow the slider orientation and point along the selected range",
+                    "type": {
+                        "enumeration": [
+                            { "value": "line", "displayName": "Arrow \u25B6 \u25C0" },
+                            { "value": "circle", "displayName": "Half Circle \u25D6 \u25D7" },
+                            { "value": "fullCircle", "displayName": "Full Circle \u25CF" },
+                            { "value": "triangle", "displayName": "Pointer \u25B2" },
+                            { "value": "square", "displayName": "Square \u25A0" },
+                            { "value": "diamond", "displayName": "Diamond \u25C6" },
+                            { "value": "bar", "displayName": "Bar |" }
+                        ]
+                    }
+                }
+            }
+        },
+        "labelSettings": {
+            "displayName": "Labels",
+            "properties": {
+                "labelPosition": {
+                    "displayName": "Position",
+                    "description": "Top/Bottom apply to a horizontal slider, Left/Right to a vertical slider",
+                    "type": {
+                        "enumeration": [
+                            { "value": "top", "displayName": "Top" },
+                            { "value": "bottom", "displayName": "Bottom" },
+                            { "value": "left", "displayName": "Left" },
+                            { "value": "right", "displayName": "Right" }
+                        ]
+                    }
+                },
+                "labelOrientation": {
+                    "displayName": "Orientation",
+                    "type": {
+                        "enumeration": [
+                            { "value": "auto", "displayName": "Automatic" },
+                            { "value": "horizontal", "displayName": "Horizontal" },
+                            { "value": "vertical", "displayName": "Vertical" },
+                            { "value": "slant", "displayName": "Slant (45°)" }
+                        ]
+                    }
+                },
+                "labelDensity": {
+                    "displayName": "Density",
+                    "type": {
+                        "enumeration": [
+                            { "value": "all", "displayName": "Show All" },
+                            { "value": "smart", "displayName": "Smart (fit available space)" },
+                            { "value": "every2", "displayName": "Every 2nd" },
+                            { "value": "every3", "displayName": "Every 3rd" },
+                            { "value": "every5", "displayName": "Every 5th" }
+                        ]
+                    }
+                },
+                "showSelectedRange": {
+                    "displayName": "Show Selected Range",
+                    "type": {
+                        "bool": true
+                    }
+                },
+                "fontFamily": {
+                    "displayName": "Font Family",
+                    "type": {
+                        "formatting": {
+                            "fontFamily": true
+                        }
+                    }
+                },
+                "fontSize": {
+                    "displayName": "Font Size",
+                    "type": {
+                        "formatting": {
+                            "fontSize": true
+                        }
+                    }
+                },
+                "fontColor": {
+                    "displayName": "Font Color",
+                    "type": {
+                        "fill": {
+                            "solid": {
+                                "color": true
+                            }
+                        }
+                    }
+                },
+                "maxLabelWidth": {
+                    "displayName": "Max Label Width (px)",
+                    "type": {
+                        "numeric": true
+                    }
+                }
+            }
+        }
+    },
+    "supportsHighlight": true,
+    "privileges": []
+}

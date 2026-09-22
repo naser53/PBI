@@ -1,0 +1,338 @@
+/* ═══════════════════════════════════════════════════════════════════════════════
+   BUTTON SLIDER - Combined Styles
+   ═══════════════════════════════════════════════════════════════════════════════ */
+/* ─── Root ────────────────────────────────────────────────────────────────────── */
+.bss-root {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+  background: transparent;
+  transition: width 0.3s ease, height 0.3s ease;
+}
+.bss-root.collapsed-root {
+  overflow: visible;
+}
+/* ─── Version badge ───────────────────────────────────────────────────────────── */
+.bss-version {
+  position: absolute;
+  bottom: 1px;
+  right: 3px;
+  font-family: "Segoe UI", sans-serif;
+  font-size: 8px;
+  line-height: 1;
+  color: #b0b0b0;
+  opacity: 0.55;
+  pointer-events: none;
+  user-select: none;
+  z-index: 20;
+  letter-spacing: 0.2px;
+}
+/* Hide the version badge while the visual is collapsed to the icon */
+.bss-root.collapsed-root .bss-version {
+  display: none;
+}
+/* ─── Container ───────────────────────────────────────────────────────────────── */
+.bss-container {
+  display: flex;
+  align-items: stretch;
+  padding: 2px;
+  gap: 4px;
+  user-select: none;
+  -webkit-user-select: none;
+  height: 100%;
+  width: 100%;
+  box-sizing: border-box;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  transform-origin: top left;
+}
+/* Collapsed state */
+.bss-container.collapsed {
+  opacity: 0;
+  transform: scale(0);
+  pointer-events: none;
+  position: absolute;
+}
+.bss-placeholder {
+  color: #888;
+  font-size: 13px;
+  font-style: italic;
+  margin: auto;
+}
+/* ═══════════════════════════════════════════════════════════════════════════════
+   BUTTON MODE
+   ═══════════════════════════════════════════════════════════════════════════════ */
+/* Horizontal layout */
+.bss-container.bss-button-mode.horizontal {
+  flex-direction: row;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  overflow-y: hidden;
+}
+/* Vertical layout */
+.bss-container.bss-button-mode.vertical {
+  flex-direction: column;
+  flex-wrap: nowrap;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+/* Tiles */
+.bss-tile {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 40px;
+  padding: 2px 8px;
+  border-radius: 4px;
+  background-color: #f0f0f0;
+  border: 1px solid #ccc;
+  font-size: 12px;
+  font-weight: 600;
+  color: #333;
+  cursor: pointer;
+  transition: background-color 0.1s, border-color 0.1s;
+  white-space: nowrap;
+  box-sizing: border-box;
+  flex-shrink: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.bss-tile:hover {
+  background-color: #e0e0e0;
+  border-color: #999;
+}
+.bss-tile.selected {
+  background-color: #118dff;
+  border-color: #0a6ecc;
+  color: #fff;
+}
+/* ═══════════════════════════════════════════════════════════════════════════════
+   SLIDER MODE
+   ═══════════════════════════════════════════════════════════════════════════════ */
+.bss-container.bss-slider-mode {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: stretch;
+  padding: 8px 12px;
+  overflow: hidden;
+}
+/* Vertical slider: range display on top, then a row holding labels + track */
+.bss-container.bss-slider-mode.vertical {
+  padding: 8px;
+}
+.ss-vertical-body {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: center;
+  flex: 1 1 auto;
+  min-height: 0;
+  width: 100%;
+}
+/* Selected Range Display */
+.ss-range-display {
+  text-align: center;
+  margin-bottom: 6px;
+  font-weight: 600;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+/* Slider Area */
+.ss-slider-area {
+  position: relative;
+  width: 100%;
+  cursor: pointer;
+  margin: 4px 0;
+}
+.ss-slider-area.vertical {
+  height: 100%;
+  width: auto;
+  margin: 0 4px;
+  flex: 0 0 auto;
+}
+/* Track */
+.ss-track {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  transform: translateY(-50%);
+  border-radius: 3px;
+}
+.ss-track.vertical {
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  right: auto;
+  transform: translateX(-50%);
+}
+.ss-track-selected {
+  position: absolute;
+  top: 0;
+  cursor: grab;
+}
+.ss-track-selected.vertical {
+  left: 0;
+}
+.ss-track-selected:active {
+  cursor: grabbing;
+}
+/* Handles */
+.ss-handle {
+  position: absolute;
+  cursor: grab;
+  z-index: 10;
+  transition: box-shadow 0.15s ease;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+}
+.ss-handle:hover {
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
+}
+.ss-handle:active {
+  cursor: grabbing;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+}
+/* ── Handle geometry ──────────────────────────────────────────────────────────
+   Shapes are CSS-drawn so they honour Handle Color / Handle Size and don't
+   depend on any font being installed. Border widths and radii are set inline
+   by createHandle(), which knows the orientation and whether it is the
+   start or end handle.
+   ──────────────────────────────────────────────────────────────────────────── */
+/* CSS triangle: zero-size box, one coloured border edge (Arrow and Pointer) */
+.ss-handle.ss-geom-triangle {
+  background-color: transparent !important;
+  box-shadow: none !important;
+  width: 0 !important;
+  height: 0 !important;
+  border-style: solid;
+  border-color: transparent;
+  border-width: 0;
+}
+/* Full disc */
+.ss-handle.ss-geom-disc {
+  border-radius: 50%;
+}
+/* Half disc - radius set inline per side/orientation */
+.ss-handle.ss-geom-halfdisc {
+  border-radius: 0;
+}
+/* Square */
+.ss-handle.ss-geom-square {
+  border-radius: 2px;
+}
+/* Diamond */
+.ss-handle.ss-geom-diamond {
+  border-radius: 2px;
+  transform: rotate(45deg);
+}
+/* Bar ( | ) - thin divider across the track; radius set inline */
+.ss-handle.ss-geom-bar {
+  border-radius: 1px;
+}
+/* Labels Container */
+.ss-labels {
+  position: relative;
+  width: 100%;
+  height: auto;
+  min-height: 16px;
+  margin: 4px 0;
+}
+.ss-labels.vertical {
+  height: 100%;
+  min-height: 0;
+  margin: 0;
+  flex: 0 0 auto;
+  overflow: hidden;
+}
+/* Label Wrapper */
+.ss-label-wrapper {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transform: translateX(-50%);
+}
+.ss-label-wrapper.vertical {
+  flex-direction: row;
+  align-items: center;
+  transform: translateY(-50%);
+}
+/* Tick marks */
+.ss-tick {
+  width: 1px;
+  height: 5px;
+  background-color: #ccc;
+  flex-shrink: 0;
+}
+.ss-label-wrapper.vertical .ss-tick {
+  width: 5px;
+  height: 1px;
+}
+.ss-label-wrapper.vertical .ss-label {
+  padding: 0 3px;
+}
+/* Labels */
+.ss-label {
+  display: block;
+  white-space: nowrap;
+  text-align: center;
+}
+.ss-label.orient-horizontal {
+  transform: none;
+}
+.ss-label.orient-vertical {
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+  transform: rotate(180deg);
+  white-space: nowrap;
+}
+.ss-label.orient-slant {
+  transform: rotate(-45deg);
+  transform-origin: top center;
+  white-space: nowrap;
+}
+/* ═══════════════════════════════════════════════════════════════════════════════
+   COLLAPSE ICON
+   ═══════════════════════════════════════════════════════════════════════════════ */
+.bss-collapse-icon {
+  position: absolute;
+  z-index: 100;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.2s ease;
+  border-radius: 4px;
+  background: transparent;
+}
+.bss-collapse-icon:hover {
+  transform: scale(1.15);
+  opacity: 0.8;
+}
+.bss-collapse-icon img {
+  display: block;
+  object-fit: contain;
+}
+.collapsed-root .bss-collapse-icon {
+  z-index: 200;
+}
+/* Icon positions */
+.bss-collapse-icon.pos-topLeft {
+  top: 2px;
+  left: 2px;
+}
+.bss-collapse-icon.pos-topRight {
+  top: 2px;
+  right: 2px;
+}
+.bss-collapse-icon.pos-bottomLeft {
+  bottom: 2px;
+  left: 2px;
+}
+.bss-collapse-icon.pos-bottomRight {
+  bottom: 2px;
+  right: 2px;
+}
+

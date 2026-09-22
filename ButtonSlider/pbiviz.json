@@ -1,0 +1,26 @@
+{
+    "visual": {
+        "name": "buttonSlider",
+        "displayName": "Button Slider",
+        "guid": "buttonSliderF1A2B3C4D5E6F7A8B9C0D1E2F3A4B5C6",
+        "visualClassName": "Visual",
+        "version": "1.6.0.0",
+        "description": "Combined button and slider with a toggle to switch between modes",
+        "supportUrl": "https://github.com/user/buttonSlider",
+        "gitHubUrl": ""
+    },
+    "apiVersion": "5.11.1",
+    "author": {
+        "name": "Naser Daneshi",
+        "email": "naser.daneshi@example.com"
+    },
+    "assets": {
+        "icon": "assets/icon.png"
+    },
+    "externalJS": null,
+    "style": "style/visual.less",
+    "capabilities": "capabilities.json",
+    "dependencies": null,
+    "stringResources": [],
+    "version": "1.6.0.0"
+}
