@@ -6,13 +6,13 @@
         "visualClassName": "Visual",
         "version": "1.6.0.0",
         "description": "Combined button and slider with a toggle to switch between modes",
-        "supportUrl": "https://github.com/user/buttonSlider",
-        "gitHubUrl": ""
+        "supportUrl": "https://github.com/naser53/PBI/issues",
+        "gitHubUrl": "https://github.com/naser53/PBI"
     },
     "apiVersion": "5.11.1",
     "author": {
         "name": "Naser Daneshi",
-        "email": "naser.daneshi@example.com"
+        "email": "naserdaneshi@gmail.com"
     },
     "assets": {
         "icon": "assets/icon.png"

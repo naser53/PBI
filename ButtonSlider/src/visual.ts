@@ -11,9 +11,6 @@ import VisualObjectInstance = powerbi.VisualObjectInstance;
 
 import "./../style/visual.less";
 
-// Visual version — keep in sync with pbiviz.json / package.json
-const VISUAL_VERSION = "1.6.0.0";
-
 // ─── Embedded Icons (base64) ────────────────────────────────────────────────────
 const ICONS: Record<string, string> = {
     filterBW16: "iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAAAdgAAAHYBTnsmCAAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAACLSURBVDiNzY+5CYBAEAAH7csKDIy0BjMbMNHE3MwWBFuwBrENwVjwS+7gxG/PyIENbmHmWPgLETACm3BGIDQDjYWspzYDHjBZyJNyDgTALJAXdfIlsSCQ3Mma/EHO3mRNeSFXUhnABXpD7tXuhHMTWIDBeA9qJw6IkQa6L/EWWIHC4qMDKeB/Ea3YASvCUSfyYo3nAAAAAElFTkSuQmCC",
@@ -138,7 +135,6 @@ export class Visual implements IVisual {
     private rootElement: HTMLElement;
     private container: HTMLElement;
     private iconElement: HTMLElement | null = null;
-    private versionElement: HTMLElement | null = null;
     private categories: string[] = [];
     private slicerType: string = "button";
 
@@ -185,14 +181,6 @@ export class Visual implements IVisual {
         this.container = document.createElement("div");
         this.container.className = "bss-container";
         this.rootElement.appendChild(this.container);
-
-        // Version badge (bottom-right, subtle). Persists across renders since it
-        // lives on the root element, not the container that render() clears.
-        this.versionElement = document.createElement("div");
-        this.versionElement.className = "bss-version";
-        this.versionElement.textContent = "v" + VISUAL_VERSION;
-        this.versionElement.title = "Button Slider v" + VISUAL_VERSION;
-        this.rootElement.appendChild(this.versionElement);
 
         // Prevent text selection during drag
         this.container.addEventListener("selectstart", (e) => e.preventDefault());
@@ -474,22 +462,22 @@ export class Visual implements IVisual {
             const iconSpace = (cs.iconSize + 6) + "px";
             if (s.orientation === "vertical") {
                 this.container.style.paddingTop = iconSpace;
-                this.container.style.paddingBottom = "2px";
-                this.container.style.paddingLeft = "2px";
-                this.container.style.paddingRight = "2px";
+                this.container.style.paddingBottom = "5px";
+                this.container.style.paddingLeft = "5px";
+                this.container.style.paddingRight = "5px";
             } else {
-                this.container.style.paddingTop = "2px";
-                this.container.style.paddingBottom = "2px";
+                this.container.style.paddingTop = "5px";
+                this.container.style.paddingBottom = "5px";
                 if (cs.iconPosition === "topLeft" || cs.iconPosition === "bottomLeft") {
                     this.container.style.paddingLeft = iconSpace;
-                    this.container.style.paddingRight = "2px";
+                    this.container.style.paddingRight = "5px";
                 } else {
                     this.container.style.paddingRight = iconSpace;
-                    this.container.style.paddingLeft = "2px";
+                    this.container.style.paddingLeft = "5px";
                 }
             }
         } else {
-            this.container.style.padding = "2px";
+            this.container.style.padding = "5px";
         }
 
         this.categories.forEach((label, index) => {

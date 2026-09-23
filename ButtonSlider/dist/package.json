@@ -1,6 +1,6 @@
 {
 		"version": "1.6.0.0",
-		"author": {"name":"Naser Daneshi","email":"naser.daneshi@example.com"},
+		"author": {"name":"Naser Daneshi","email":"naserdaneshi@gmail.com"},
 		"resources": [
 			{
 				"resourceId": "rId0",
@@ -8,7 +8,7 @@
 				"file": "resources/buttonSliderF1A2B3C4D5E6F7A8B9C0D1E2F3A4B5C6.pbiviz.json"
 			}
 		],
-		"visual": {"name":"buttonSlider","displayName":"Button Slider","guid":"buttonSliderF1A2B3C4D5E6F7A8B9C0D1E2F3A4B5C6","visualClassName":"Visual","version":"1.6.0.0","description":"Combined button and slider with a toggle to switch between modes","supportUrl":"https://github.com/user/buttonSlider","gitHubUrl":""},
+		"visual": {"name":"buttonSlider","displayName":"Button Slider","guid":"buttonSliderF1A2B3C4D5E6F7A8B9C0D1E2F3A4B5C6","visualClassName":"Visual","version":"1.6.0.0","description":"Combined button and slider with a toggle to switch between modes","supportUrl":"https://github.com/naser53/PBI/issues","gitHubUrl":"https://github.com/naser53/PBI"},
 		"metadata": {
 			"pbivizjson": {
 				"resourceId": "rId0"

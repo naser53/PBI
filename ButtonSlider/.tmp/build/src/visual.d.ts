@@ -11,7 +11,6 @@ export declare class Visual implements IVisual {
     private rootElement;
     private container;
     private iconElement;
-    private versionElement;
     private categories;
     private slicerType;
     private selectedIndices;
