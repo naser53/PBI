@@ -10,3 +10,6 @@ $RECYCLE.BIN/
 
 # Windows shortcuts
 *.lnk
+
+### Video recordings (demo clips — host on YouTube/Vimeo, do not commit)
+*.mp4
