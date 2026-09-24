@@ -5,7 +5,7 @@ A combined **button slicer** and **range slider** for Power BI, with a single to
 - **Author:** Naser Daneshi
 - **License:** [MIT](LICENSE)
 - **API version:** 5.11.1
-- **Version:** 1.6.0.0
+- **Version:** 1.6.0.1
 
 ## Features
 
